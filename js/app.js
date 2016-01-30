@@ -3,7 +3,7 @@ $(function(){
 padSounds.on("click", function(e){
   e.preventDefault();
   var fileName = $(this).attr("id");
-  var audio = new Audio("Sounds/"+ fileName +".mp3");
+  var audio = new Audio("Sounds/"+ fileName +".wav");
   audio.play();
   })
 

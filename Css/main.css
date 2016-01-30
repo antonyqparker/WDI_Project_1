@@ -7,7 +7,7 @@ body{
 .buttons{
 }
 
-#gamePlay{
+#gamePlay {
   width:314px;
   height: 90px;
   background-color: #B8B8B8;
@@ -16,6 +16,7 @@ body{
   margin-left: 89px;
   border-radius: 5px;
   font-family:'8BITWONDERNominal'; 
+  font-size:13px;
   position:relative;
 }
 
@@ -43,3 +44,25 @@ body{
   border-radius: 3px;
   color:white;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
