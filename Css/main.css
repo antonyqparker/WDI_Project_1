@@ -8,12 +8,14 @@ body{
 }
 
 #gamePlay{
-  width:300px;
-  height: 50px;
-  background-color: black;
+  width:314px;
+  height: 90px;
+  background-color: #B8B8B8;
   display:block;
-  margin-top: 75px;
-  margin-left: 80px;
+  margin-top: 35px;
+  margin-left: 89px;
+  border-radius: 5px;
+  font-family:'8BITWONDERNominal'; 
   position:relative;
 }
 
@@ -26,3 +28,18 @@ body{
   margin:auto;
 }
 
+#transporter{
+  width:220px;
+  height: 50px;
+  margin-top:420px;
+  position: relative;
+  margin-left: 163px;
+  padding:15px;
+}
+
+.buttons{
+  width:105px;
+  height:50px;
+  border-radius: 3px;
+  color:white;
+}

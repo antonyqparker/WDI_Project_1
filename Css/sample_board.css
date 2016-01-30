@@ -1,7 +1,7 @@
 
 #sampleContainer{
   max-width:368px;
-  margin-right:10px;
+  margin-right:7px;
   margin-top: 251px;
   border:2px solid black;
   float:right;
@@ -16,6 +16,7 @@
   height:70px;
   width:70px;
   border:2px solid black;
-  margin:6px 4px;
+  margin:6px 3px;
+  margin-right;3px;
   position: relative;
 }
