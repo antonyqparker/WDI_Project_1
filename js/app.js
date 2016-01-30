@@ -1,4 +1,14 @@
 $(function(){
+
+
+  var turncount = 0; 
+  var generatedArray = [];
+  var player1array = [];
+  var player2array = [];
+  var player1Lives = 3;
+  var player2Lives = 3;
+  var generatedNumbers =[];
+
   var padSounds = $('a');
 padSounds.on("click", function(e){
   e.preventDefault();
@@ -14,19 +24,11 @@ $('#play').on("click", function(){
   console.log(startGame);
   message("Player 1 will start.  You have 3 lives remaining.  Input the correct sequence so you dont get booed off stage...Everyone is watching");
   $.each(generatedArray, function( index, value ) {
-    var fileName = $(this).attr("id");
-    var audio = new Audio("Sounds/"+ fileName +".mp3");
+    //play value
+    var audio = new Audio("Sounds/"+ generatedArray[value] +".wav"); //this is the part i'm trying to solve 
+  audio.play
     });
   });
-});
-
-var turncount = 0; 
-var generatedArray = [];
-var player1array = [];
-var player2array = [];
-var player1Lives = 3;
-var player2Lives = 3;
-var generatedNumbers =[];
 
 
 
@@ -49,6 +51,7 @@ function message(msg){
     $('#gamePlay').text(msg)
   }
 
+});
 
   
 
