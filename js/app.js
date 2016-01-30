@@ -12,7 +12,11 @@ message("Welcome to Memory MPC,");
 $('#play').on("click", function(){
   startGame();
   console.log(startGame);
-  message("Player 1 will start.  You have 3 lives remaining.  Input the correct sequence so you dont get booed off stage...Everyone is watching")
+  message("Player 1 will start.  You have 3 lives remaining.  Input the correct sequence so you dont get booed off stage...Everyone is watching");
+  $.each(generatedArray, function( index, value ) {
+    var fileName = $(this).attr("id");
+    var audio = new Audio("Sounds/"+ fileName +".mp3");
+    });
   });
 });
 
@@ -44,6 +48,9 @@ function startGame(){
 function message(msg){
     $('#gamePlay').text(msg)
   }
+
+
+  
 
 
 
