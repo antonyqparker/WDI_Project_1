@@ -20,3 +20,13 @@
   margin-right;3px;
   position: relative;
 }
+
+#sampler a.playing {
+  background-color: orange;
+  opacity: 0.5;
+}
+
+#sampler a.notPlaying {
+  background-color: none;
+  opacity:none;
+}

@@ -14,26 +14,34 @@ padSounds.on("click", function(e){
   e.preventDefault();
   var fileName = $(this).attr("id");
   var audio = new Audio("Sounds/"+ fileName +".wav");
-  audio.play();
+  audio.play()
+  $("a").on("mousedown", function() {
+      $(this).css("background", "orange");
+    });
+  $("a").on("mouseup", function() {
+      $(this).css("background", "none");
+    });
   })
 
 message("Welcome to Memory MPC,");
 
 $('#play').on("click", function(){
   startGame();
-  console.log(startGame);
   message("Player 1 will start.  You have 3 lives remaining.  Input the correct sequence so you dont get booed off stage...Everyone is watching");
-  $.each(generatedArray, function( index, value ) {
-    //play value
-    var audio = new Audio("Sounds/"+ generatedArray[value] +".wav"); //this is the part i'm trying to solve 
-  audio.play
-    });
+  $.each(generatedArray, function(index, value){
+    setTimeout(function() {
+      $(this).removeClass("playing");
+      $(this).addClass("playing");
+      // $(".notPlaying").toggleClass(".playing" )
+      var audio = new Audio("Sounds/" + value + ".wav");
+      audio.play();
+      console.log("Audio started");
+    }, (index + 1) * 970);
   });
-
-
+});
 
 randomNumber = function(){
-  var compGenSeq = Math.floor(Math.random() * 15)
+  var compGenSeq = Math.floor(Math.random() * 15) + 1;
   generatedArray.push(compGenSeq);
   console.log(generatedArray);
 }
@@ -53,6 +61,11 @@ function message(msg){
 
 });
 
+// function playerGo() {
+//   padSounds.on("click", function(e){
+//     e.preventDefault();
+//     player1array.push();
+// }
   
 
 
