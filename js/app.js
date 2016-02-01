@@ -23,10 +23,35 @@ padSounds.on("click", function(e){
     });
   })
 
+
+
+
+
 padSounds.on("click", function(e){
   e.preventDefault();
-  player1array.push(this);
+  var text = this.id;
+  var number = parseInt(text, 10);
+  player1array.push(number);
   console.log(player1array);
+  var p1array = player1array.toString();
+  var genArray = generatedArray.toString();
+  checkRound();
+  switchPlayer();
+  if (p1array == genArray){
+    randomNumber();
+    $.each(generatedArray, function(index, value){
+      var id = "#" + value;
+      setTimeout(function() {
+        $(id).addClass("playing");
+        var audio = new Audio("Sounds/" + value + ".wav");
+        audio.play();
+      }, (index + 1) * 970);
+      setTimeout(function() {
+        $(id).removeClass("playing")
+      }, 970 + (index + 1)*970);
+    });
+    player1array=[]
+  }
 });
 
 message("Welcome to Memory MPC,");
@@ -45,7 +70,10 @@ $('#play').on("click", function(){
       $(id).removeClass("playing")
     }, 970 + (index + 1)*970);
   });
-  // playerGo()
+});
+
+$('#reset').on("click", function(){
+  location.reload();
 });
 
 randomNumber = function(){
@@ -66,8 +94,95 @@ function startGame(){
 function message(msg){
     $('#gamePlay').text(msg)
   }
-});
 
+function checkRound(){
+  var p1array = player1array.toString();
+  var genArray = generatedArray.toString();
+    if(p1array !== genArray){
+      player1Lives --
+      message("Player 1 loses a life.  Player 1 has " + player1Lives + " remaining")
+    }else{
+      player1Lives = player1Lives;
+    }
+  }
+
+function checkRoundp2(){
+  var p2Str = player2array.toString();
+  var genStr = generatedArray.toString();
+  if(p2Str !== genStr){
+    player2Lives --
+    message("Player 2 loses a life.  Player 2 has " + player2Lives + " remaining")
+  }
+}
+
+function checkForP2Lives(){
+  if(player2Lives == 0){
+    message("Player 2, you have run out of lives. Get off the stage!")
+    checkForWinner();
+  }
+}
+
+function checkForWinner(){
+  if (player1array.length > player2array.length){
+    message ("Player 1, you win!");
+  }else if (player2array.length > player1array.length){
+    message("Player 2, you win!");
+  }else if (player2array.length == player1array.length){
+    message("It's a draw!");
+  }
+};
+
+function switchPlayer(){
+  if(player1Lives == 0){
+        message("Player 1 has run out of lives, its player 2's turn. Please press 'Next Player'to continue")
+     generatedArray=[]
+  $('#nextPlayer').on("click", function(){
+    startGame();
+    message("Player 2.  You have 3 lives remaining. Input the correct sequence so you dont get booed off stage...Everyone is watching");
+    $.each(generatedArray, function(index, value){
+      var id = "#" + value;
+      setTimeout(function() {
+        $(id).addClass("playing");
+        var audio = new Audio("Sounds/" + value + ".wav");
+        audio.play();
+      }, (index + 1) * 970);
+      setTimeout(function() {
+        $(id).removeClass("playing")
+      }, 970 + (index + 1)*970);
+    });
+  });
+
+
+     //something here to start the sequence again
+     padSounds.on("click", function(e){
+       e.preventDefault();
+       var text = this.id;
+       var number = parseInt(text, 10);
+      player2array.push(number);
+       // console.log(player2array);
+       var p2array = player2array.toString();
+       var genArray = generatedArray.toString();
+       checkRoundp2();
+       checkForP2Lives();
+       if (p2array == genArray){
+         randomNumber();
+         $.each(generatedArray, function(index, value){
+           var id = "#" + value;
+           setTimeout(function() {
+             $(id).addClass("playing");
+             var audio = new Audio("Sounds/" + value + ".wav");
+             audio.play();
+           }, (index + 1) * 970);
+           setTimeout(function() {
+             $(id).removeClass("playing")
+           }, 970 + (index + 1)*970);
+         });
+         player2array=[]
+       }
+     });
+   }
+  }
+});
 // function playerGo() {
 //  padSounds.on("click", function(e){
 //  e.preventDefault();
