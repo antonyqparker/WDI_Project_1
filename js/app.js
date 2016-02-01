@@ -7,7 +7,7 @@ $(function(){
   var player2Score = 0;
   var player1Lives = 3;
   var player2Lives = 3;
-  var currentPlayer = 1
+  var currentPlayer = 1;
 
 
 
@@ -17,10 +17,10 @@ $(function(){
     var fileName = $(this).attr("id");
     var audio = new Audio("Sounds/"+ fileName +".wav");
     audio.play()
-    $("a").on("mousedown", function() {
+    $("a").on("mousedown", function(){
       $(this).addClass("clicked");
     });
-    $("a").on("mouseup", function() {
+    $("a").on("mouseup", function(){
       $(this).removeClass("clicked");
     });
   })
@@ -46,8 +46,8 @@ $(function(){
         $(id).addClass("playing");
         var audio = new Audio("Sounds/" + value + ".wav");
         audio.play();
-      }, (index + 1) * 970);
-      setTimeout(function() {
+        }, (index + 1) * 970);
+        setTimeout(function() {
         $(id).removeClass("playing")
       }, 970 + (index + 1)*970);
     });
@@ -63,13 +63,12 @@ padSounds.on("click", function(e){
   console.log(playerArray);
   var pArray = playerArray.toString();
   var genArray = generatedArray.toString();
-  if(playerArray.length === generatedArray.length) {
+  if(playerArray.length === generatedArray.length){
     checkRound();
   }
   if (player1Lives === 0 && player2Lives === 0){
-    console.log("if statement")
     checkForWinner();
-    }
+  }
  });
 
 //after the generatedArray has played it's samples it is now the players turn to go.  Each click of a pad pushes its id into an array called playerArray.  When both arrays are the same length the checkRound function is called which checks whether the two arrays match. 
@@ -90,14 +89,14 @@ function startGame(){
 }
 
 //starts the game by calling randomNumber twice using a loop
-//random number generated a random number between 1 and 16.
+//random number generated a random number between 1 and 16
 //they are then pushed to the generatedArray
 
 function message(msg){
   $('#gamePlay').text(msg)
 }
 
-//for supplying the gamePlay box with HTML text.
+//for supplying the gamePlay box with HTML text
 
 function checkRound(){
   var pArray = playerArray.toString();
@@ -105,7 +104,7 @@ function checkRound(){
   if(pArray == genArray && currentPlayer == 1){
     randomNumber();
     player1Score ++;
-    playerArray = []
+    playerArray = [];
     console.log(player1Score);
     $.each(generatedArray, function(index, value){
       var id = "#" + value;
@@ -121,7 +120,7 @@ function checkRound(){
     }else if(pArray == genArray && currentPlayer == 2){
       randomNumber();
       player2Score ++;
-      playerArray = []
+      playerArray = [];
       console.log(player2Score);
       $.each(generatedArray, function(index, value){
         var id = "#" + value;
@@ -134,20 +133,21 @@ function checkRound(){
           $(id).removeClass("playing")
         }, 970 + (index + 1)*970);
       });
-  }else if (player1Lives == 0){
-    player2Lives --;
-    playerArray=[];
-    message("Player 2 loses a life. Player 2 has " + player2Lives + " remaining");
-    currentPlayer = 2
-  }else{
-    player1Lives--;
-    playerArray=[]
-    message("Player 1 loses a life.  Player 1 has " + player1Lives + " remaining")
-    switchPlayer();
+    }else if (player1Lives == 0){
+      player2Lives --;
+      playerArray=[];
+      message("Player 2 loses a life. Player 2 has " + player2Lives + " remaining");
+      currentPlayer = 2;
+    }else{
+      player1Lives--;
+      playerArray=[];
+      message("Player 1 loses a life.  Player 1 has " + player1Lives + " remaining");
+      switchPlayer();
+    }
   }
-}
 
-//Check round is seeing whether the playerArray and generatedArray match and also who's turn it is in order to add scores the the right player.  First part is an if statement checking whether the player is player1 and if so will add points to player 1.  After is another if statment that will add points to player2
+//Check round is seeing whether the playerArray and generatedArray match and also who's turn it is in order to add scores the the right player.  First part is an if statement checking whether the player is player1 and if so will add points to player 1.  After is another if statment that will add points to player2.
+//Code is repeated as i couldn't find a way to add points to both player 1 and 2 in the same function.
 
 function checkForWinner(){
   console.log("checkForWinner")
@@ -175,8 +175,8 @@ function switchPlayer(){
           $(id).addClass("playing");
           var audio = new Audio("Sounds/" + value + ".wav");
           audio.play();
-        }, (index + 1) * 970);
-        setTimeout(function() {
+          }, (index + 1) * 970);
+          setTimeout(function() {
           $(id).removeClass("playing")
         }, 970 + (index + 1)*970);
       });

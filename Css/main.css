@@ -49,29 +49,14 @@ body{
   font-weight: bold;
 }
 
-.buttons:hover{
+#reset:hover{
   background-color: red;
 }
 
+#play:hover{
+  background-color:green
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#nextPlayer:hover{
+  background-color: orange;
+}
