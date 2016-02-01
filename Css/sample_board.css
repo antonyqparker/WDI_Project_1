@@ -12,10 +12,12 @@
   text-decoration: none;
   height:70px;
   width:70px;
-  border:2px solid;
+  border:2px solid transparent;
+  border-radius: 2px;
   margin:4px 3px;
   margin-right:3px;
   position: relative;
+  border-radius:2px;
 }
 
 #sampler a:hover{
@@ -28,6 +30,6 @@
 }
 
 #sampler a.clicked{
-  background-color: red;
+  background-color: orange;
   opacity: 0.6;
 }

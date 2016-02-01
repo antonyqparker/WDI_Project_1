@@ -137,7 +137,6 @@ function checkRound(){
       player2Lives --;
       playerArray=[];
       message("Player 2 loses a life. Player 2 has " + player2Lives + " remaining");
-      currentPlayer = 2;
     }else{
       player1Lives--;
       playerArray=[];
@@ -164,9 +163,11 @@ function checkForWinner(){
 
 function switchPlayer(){
   if(player1Lives == 0){
-    message("Player 1 has run out of lives, its player 2's turn. Please press 'Start Game'to continue")
+    message("Player 1 has run out of lives, its player 2's turn. Please press 'Next Player'to continue")
     generatedArray = [];
     $('#nextPlayer').on("click", function(){
+      playerArray = [];
+      currentPlayer = 2
       startGame();
       message("Player 2. You have 3 lives remaining. Input the correct sequence so you dont get booed off stage...Everyone is watching");
       $.each(generatedArray, function(index, value){
