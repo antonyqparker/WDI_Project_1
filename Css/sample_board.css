@@ -1,13 +1,10 @@
 
 #sampleContainer{
   max-width:368px;
-  margin-right:7px;
-  margin-top: 251px;
-  border:2px solid black;
-  float:right;
-  position:relative;
-
-
+  margin-top: 253px;
+  margin-left: 525px;
+  border:2px solid transparent;
+  position:absolute;
 }
 
 #sampler a{
@@ -15,18 +12,22 @@
   text-decoration: none;
   height:70px;
   width:70px;
-  border:2px solid black;
-  margin:6px 3px;
-  margin-right;3px;
+  border:2px solid;
+  margin:4px 3px;
+  margin-right:3px;
   position: relative;
 }
 
-#sampler a.playing {
-  background-color: orange;
+#sampler a:hover{
+  box-shadow: 0px 0px 30px purple;
+}
+
+#sampler a.playing{
+  background-color: purple;
   opacity: 0.5;
 }
 
-#sampler a.notPlaying {
-  background-color: none;
-  opacity:none;
+#sampler a.clicked{
+  background-color: red;
+  opacity: 0.6;
 }

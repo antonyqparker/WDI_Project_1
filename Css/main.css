@@ -1,40 +1,42 @@
 body{
   background-image:url("../Images/mpc2000xl_top_lg_v2.png");
   background-repeat: no-repeat;
-  background-position: right;
+  background-position: center;
   }
 
 .buttons{
 }
 
 #gamePlay {
-  width:314px;
-  height: 90px;
+  width:303px;
+  height: 82px;
   background-color: #B8B8B8;
   display:block;
-  margin-top: 35px;
-  margin-left: 89px;
+  margin-top: 31px;
+  margin-left: 93px;
   border-radius: 5px;
   font-family:'8BITWONDERNominal'; 
-  font-size:13px;
-  position:relative;
+  font-size:12px;
+  position:absolute;
+  padding: 5px;
 }
 
 #player{
-  border:2px solid black;
+  border:2px solid transparent;
   height: 700px;
   width:900px;
   display:block;
   float:center;
   margin:auto;
+  position:relative;
 }
 
 #transporter{
   width:350px;
   height: 50px;
-  margin-top:420px;
-  position: relative;
-  margin-left: 103px;
+  margin-top:545px;
+  position: absolute;
+  margin-left: 105px;
   padding:15px;
 }
 
@@ -43,7 +45,14 @@ body{
   height:50px;
   border-radius: 3px;
   color:white;
+  font-size: 13px;
+  font-weight: bold;
 }
+
+.buttons:hover{
+  background-color: red;
+}
+
 
 
 
