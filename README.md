@@ -15,7 +15,7 @@ Sample Pads (to the left) - These must be pressed in order to trigger a sample. 
 
 Instructions
 
-Once play has been pressed the computer will play back two samples which will light up purple on the pads.  After the sequence has been played, player must play back the exact same sequence in order to progress to the next round.  If the samples entered by the player are the same as the computers, an additional sample will be added to the computer sequence, which will then be played back to you.  This process will continue until player runs out of lives.  
+Once play has been pressed the computer will play back two samples which will light up purple on the pads.  After the sequence has been played, player must play back the exact same sequence in order to progress to the next round.  If the samples entered by the player are the same as the computers, an additional sample will be added to the computer sequence, which will then be played back to you. If your sequence is not the same , you will lose a life and you have to start from the beginning of the sequence.  This process will continue until player runs out of lives.  
 
   Lives - Each player has 3 lives.  If you sequence is not the same has the computers' you will lose a life.  
   Points - A point will be awarded for each successfull round e.g. if a sequence of 6 samples long is correctly played, i will receive 6 points.  There are no penalty points.
